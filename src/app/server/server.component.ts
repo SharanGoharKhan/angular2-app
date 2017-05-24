@@ -5,8 +5,10 @@ selector: 'app-server',
 templateUrl: './server.component.html'
 })
 export class ServerComponent {
-    constructor()
-    {
-        console.log("Server Component called");
-    }
+   serverId:number=10;
+   serverStatus: string = "offline";
+   getServerStatus()
+   {
+       return this.serverStatus;
+   }
 }
