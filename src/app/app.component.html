@@ -1,9 +1,11 @@
-<app-header></app-header>
+<app-header (refUpdated)='handleRefUpdated($event)'></app-header>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <app-recipes></app-recipes>
-            <app-shopping-list></app-shopping-list>
+            <app-recipes *ngIf="heading_selected ==='recipe';else elseBlock"></app-recipes>
+            <ng-template #elseBlock>
+                <app-shopping-list></app-shopping-list>
+            </ng-template>    
         </div>
     </div>
 </div>

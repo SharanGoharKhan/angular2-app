@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styles: ['.logsClass { color: white;background:blue }']
 })
 export class AppComponent {
+   heading_selected:string='recipe';
    username:string = '';
    showDetails:boolean = false;
    log=[]
@@ -18,5 +19,9 @@ export class AppComponent {
     {
       this.showDetails = this.showDetails==false ? true : false;
       this.log.push(this.log.length+1);
+    }
+    handleRefUpdated(event)
+    {
+      this.heading_selected=event;
     }
 }
