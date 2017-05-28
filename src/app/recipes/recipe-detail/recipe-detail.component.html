@@ -10,7 +10,7 @@
 </div>
 <div class="row">
   <div class="col-xs-12"> 
-    <div class="btn-group">
+    <div appDropDown class="btn-group">
       <button class="btn btn-primary dropdown-toggle">
         Manage Recipe <span class="caret"></span>
       </button>
@@ -23,13 +23,15 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
+  <div *ngIf="recipe" class="col-xs-12">
     <h1>{{recipe.name}}</h1>
-    {{recipe.description}}
+    <p>{{recipe.description}}</p>
+  <div><img src="{{recipe.imagePath}}" alt=""></div>
   </div>
+   
 </div>
-<div class="row">
+<!--<div class="row">
   <div class="col-xs-12">
-    <img src="{{recipe.imagePath}}" alt="">
+   
   </div>
-</div>
+</div>-->
