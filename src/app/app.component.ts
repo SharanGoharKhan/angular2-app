@@ -11,9 +11,7 @@ export class AppComponent {
    username:string = '';
    showDetails:boolean = false;
    log=[]
-   constructor()
-    {
-        console.log("App Component called");
+   constructor(){
     }
     updateDetails()
     {
