@@ -26,6 +26,12 @@
   <div *ngIf="recipe" class="col-xs-12">
     <h1>{{recipe.name}}</h1>
     <p>{{recipe.description}}</p>
-  <div><img src="{{recipe.imagePath}}" alt=""></div>
+    <div><img src="{{recipe.imagePath}}" alt=""></div>
+    <ul class="list-group">
+      <li class="list-group-item" 
+      *ngFor="let ingredient of recipe.ingredient">
+          {{ingredient.name}} - {{ingredient.amount}}
+      </li>
+    </ul>
   </div>
 </div>
