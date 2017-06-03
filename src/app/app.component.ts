@@ -13,13 +13,13 @@ export class AppComponent {
    log=[]
    constructor(){
     }
-    updateDetails()
-    {
-      this.showDetails = this.showDetails==false ? true : false;
-      this.log.push(this.log.length+1);
-    }
-    handleRefUpdated(event)
-    {
-      this.heading_selected=event;
-    }
+    // updateDetails()
+    // {
+    //   this.showDetails = this.showDetails==false ? true : false;
+    //   this.log.push(this.log.length+1);
+    // }
+    // handleRefUpdated(event)
+    // {
+    //   this.heading_selected=event;
+    // }
 }
