@@ -24,4 +24,8 @@ export class RecipeService {
   {
     this.shlService.addIngredients(ingredients);
   }
+  getRecipeByIndex(id:number)
+  {
+    return this.recipes.slice()[id];
+  }
 }
