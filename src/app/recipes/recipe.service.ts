@@ -2,12 +2,11 @@ import {Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingService } from '../shopping-list/shopping.service';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class RecipeService {
-
-    //recipeSelected = new EventEmitter<Recipe>();
-    
+    recipesChanged = new Subject<Recipe[]>();
     private recipes:Recipe[] = [                                                                                                             
     new Recipe('Burger','Perfect tasty burger',
     'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg', 
@@ -27,5 +26,14 @@ export class RecipeService {
   getRecipeByIndex(id:number)
   {
     return this.recipes.slice()[id];
+  }
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    console.log(this.recipes.slice());
+    this.recipesChanged.next(this.recipes.slice());
+  }
+  updateRecipe(index: number ,recipe: Recipe) {
+    this.recipes[index] = recipe;
+    this.recipesChanged.next(this.recipes.slice());
   }
 }
