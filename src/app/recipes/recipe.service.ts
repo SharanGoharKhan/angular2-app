@@ -9,10 +9,10 @@ export class RecipeService {
     recipesChanged = new Subject<Recipe[]>();
     private recipes:Recipe[] = [                                                                                                             
     new Recipe('Burger','Perfect tasty burger',
-    'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg', 
+    'http://bnbjoint.com/wp-content/uploads/2015/04/Thunder_Road_full-300dpi.jpg', 
     [ new Ingredient('Buns',1), new Ingredient('fries',100) ]),
     new Recipe('Lasania',
-    'Perfect tasty lasania','https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg',
+    'Perfect tasty lasania','https://static01.nyt.com/images/2015/07/27/dining/27SPAGHETTI/27SPAGHETTI-superJumbo.jpg',
      [ new Ingredient('Cheese',1), new Ingredient('tomatoes',40)])
   ];
   constructor(private shlService:ShoppingService){}
@@ -36,7 +36,7 @@ export class RecipeService {
     this.recipesChanged.next(this.recipes.slice());
   }
   deleteRecipe(index: number) {
-    this.recipes.slice(index,1);
+    this.recipes.splice(index,1);
     this.recipesChanged.next(this.recipes.slice());
   }
 }
