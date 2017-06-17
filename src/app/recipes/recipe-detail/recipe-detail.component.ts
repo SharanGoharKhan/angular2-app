@@ -18,6 +18,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     this.paramsSubscription = this.route.params
     .subscribe(
       (params:Params) => {
+        this.id = params['id'];
         this.recipe=this.recipeService.getRecipeByIndex(params['id']);
       }
     )
@@ -33,4 +34,8 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
   onEditRecipe(){
     this.router.navigate(['edit'],{relativeTo:this.route});
   }
+  onDelete() {
+    this.recipeService.deleteRecipe(this.id);
+  }
+
 }
