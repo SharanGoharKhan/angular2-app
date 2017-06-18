@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 @Injectable()
 export class AuthService {
+token: string;
 
 constructor() { }
 signupUser(email: string, password: string) {
@@ -13,11 +14,26 @@ signupUser(email: string, password: string) {
 signinUser(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email,password)
     .then(
-        response => console.log(response)
+        response => {
+            firebase.auth().currentUser.getToken()
+            .then(
+                (token: string) => this.token = token
+            )
+        }
     )
     .catch(
         error => console.log(error)
     );
+}
+getToken() {
+    firebase.auth().currentUser.getToken()
+    .then(
+        (token: string) => this.token = token
+    )
+    return this.token;
+}
+isAuthenticated() {
+    return this.token !=null;
 }
 
 }
